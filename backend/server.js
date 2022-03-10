@@ -1,5 +1,5 @@
 const express = require('express');
-const config = require('dotenv').config({path:'./config/default.env'})
+const config = require('dotenv').config({ path: './config/default.env' });
 const dbConnection = require('./middleware/db');
 
 const app = express();
@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 });
 
 dbConnection();
-const PORT = 5000;
+const PORT = process.env.PORT;
 
 const server = app.listen(PORT, () => {
   console.log(`Server is running on port : ${PORT}`);
