@@ -1,4 +1,6 @@
 const express = require('express');
+const config = require('dotenv').config({path:'./config/default.env'})
+const dbConnection = require('./middleware/db');
 
 const app = express();
 
@@ -6,6 +8,7 @@ app.get('/', (req, res) => {
   res.json({ msg: `i am working` });
 });
 
+dbConnection();
 const PORT = 5000;
 
 const server = app.listen(PORT, () => {
